@@ -7,7 +7,13 @@
 <link rel="stylesheet" href="/static/css/style.default.css" type="text/css" />
 
 <link rel="stylesheet" href="/static/css/responsive-tables.css">
+<script type="text/javascript" src="/static/js/lib/jquery.js"></script>
 <script type="text/javascript" src="/static/js/jquery-1.9.1.min.js"></script>
+<script src="/static/js/datatables/jquery.dataTables.js" type="text/javascript"></script>
+<script src="/static/js/datatables/dataTables.bootstrap.js" type="text/javascript"></script>
+
+<link href="/static/css/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
+
 <script type="text/javascript" src="/static/js/jquery-migrate-1.1.1.min.js"></script>
 <script type="text/javascript" src="/static/js/jquery-ui-1.9.2.min.js"></script>
 <script type="text/javascript" src="/static/js/modernizr.min.js"></script>
@@ -17,9 +23,13 @@
 <script type="text/javascript" src="/static/js/flot/jquery.flot.min.js"></script>
 <script type="text/javascript" src="/static/js/flot/jquery.flot.resize.min.js"></script>
 <script type="text/javascript" src="/static/js/responsive-tables.js"></script>
-<script type="text/javascript" src="/static/js/custom.js"></script>
 <script type="text/javascript" src="/static/js/dhtmlxcalendar.js"></script>
 <link rel="stylesheet" href="/static/css/dhtmlxcalendar.css">
+<script type="text/javascript" src="/static/js/custom.js"></script>
+
+{% block head %}
+
+{% endblock %}
 <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/excanvas.min.js"></script><![endif]-->
 </head>
 
@@ -40,7 +50,7 @@
             <ul>
                <li><a href="">Edit Profile</a></li>
                <li><a href="">Account Settings</a></li>
-               <li><a href="/">Sign Out</a></li>
+               <li><a href="/logout">Sign Out</a></li>
             </ul>
         </div>
     </div>
@@ -69,7 +79,9 @@
                <li class="dropdown"><a href=""><span class="iconfa-briefcase"></span>Meal Reports</a>
                <ul>
                     <li><a href="/mealreports">Meal Reports</a></li>
-                    <li><a href="/detailedmealsreport">Detailed Meal Reports</a></li></ul></li>
+                    <li><a href="/detailedmealsreport">Detailed Meal Reports</a></li>
+                    <li><a href="/mealsinvoice">Meals Invoice</a></li>
+                  </ul></li>
                <li class="dropdown"><a href=""><span class="iconfa-bar-chart"></span>Accommodation</a>
                <ul>
                     <li><a href="/acmdreport">Accomodation Reports</a></li>

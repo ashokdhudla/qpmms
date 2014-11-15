@@ -39,11 +39,17 @@ class emp_dinnerAdmin(admin.ModelAdmin):
     class Meta:
         model = emp_dinner
 class emp_accommodationAdmin(admin.ModelAdmin):
-    list_display = ['employee_id','rfidcardno']
-    list_filter = ['employee_id']
-    search_fields =['employee_id']
+    list_display = ['rfidcardno']
+    list_filter = ['rfidcardno']
+    search_fields =['rfidcardno']
     class  Meta:
         model = emp_accommodation
+class emp_stayAdmin(admin.ModelAdmin):
+    list_display = ['rfidcardno']
+    list_filter = ['rfidcardno']
+    search_fields = ['rfidcardno']
+    class Meta:
+        model = emp_stay
 class device_infoAdmin(admin.ModelAdmin):
     list_display = ['device_id','device_location','Installation_Date']
     list_filter = ['device_location']
@@ -63,6 +69,21 @@ class departmentAdmin(admin.ModelAdmin):
     list_display = ['department_name']
     class Meta:
         model = department
+# bhanu's admins
+class emp_entryAdmin(admin.ModelAdmin):
+    list_display = ['rfidcardno']
+    list_filter = ['rfidcardno']
+    search_fields = ['rfidcardno']
+    class Meta:
+        model = emp_entry
+class emp_exitAdmin(admin.ModelAdmin):
+    list_display = ['rfidcardno']
+    list_filter = ['rfidcardno']
+    search_fields = ['rfidcardno']
+    class Meta:
+        model = emp_exit
+admin.site.register(emp_entry,emp_entryAdmin)
+admin.site.register(emp_exit,emp_exitAdmin)
 admin.site.register(qpusers, qpusersAdmin)
 admin.site.register(employee_details, employee_detailsAdmin)
 admin.site.register(associative_company, associative_companyAdmin)
@@ -74,3 +95,4 @@ admin.site.register(device_info,device_infoAdmin)
 admin.site.register(meal_timing,meal_timingAdmin)
 admin.site.register(role,roleAdmin)
 admin.site.register(department,departmentAdmin)
+admin.site.register(emp_stay,emp_stayAdmin)

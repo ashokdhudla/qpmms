@@ -10,8 +10,9 @@
               <div class="span6">
               <form method="POST" action="" class="stdform">
                 {% csrf_token %}
-                
+
                 {{ form.as_p }}
+                <input type="hidden" name="eid" value="{{eid}}"/>
 
           <section class="row text-center">
             <button class="btn btn-default">Submit</button>

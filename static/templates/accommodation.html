@@ -2,7 +2,7 @@
 {% block content %} 
 <div class="pageheader">
     <div class="pageicon"><span class="iconfa-pencil"></span></div>
-        <div class="pagetitle"><h1>Accomodation Reports</h1></div>
+        <div class="pagetitle"><h1>Tracking Reports</h1></div>
 </div>
 
 <div class="maincontent">
@@ -20,18 +20,25 @@
                     </div>
                 <div class="panel-body" >
                     <div class="span9">
-                        <form method = "POST" action="" class="stdform">{% csrf_token %}
-                    {{ form.as_p }}
-                    <div class="form-group text-center" style="float: right;margin-top: -122px;margin-right: 132px;">
+                        <form method = "POST" action="accommodationreport" class="stdform">{% csrf_token %}
+                    <!-- {{ form.as_p }} -->
+                      <div class="form-control span6 text-center" style="float:left;margin-left:-185px">
+        <!-- From : <input type="date" name="from" /> -->
+                    <input size="16" type="text" name="empid" id="empid" required placeholder="Employee Id.." />
+                    </div>
+                    <div class="form-group " style="float: left;margin-top: 0px;margin-right:-137px;">
                     <input size="16" type="text" name="fromdate" id="calendar" required placeholder="From Date.."/>
                    </div>
-                   <div class="form-group text-center" style="float: right;margin-top: -61px;margin-right: 132px;" >
+                   <div class="form-group" style="float: right;margin-top: 0px;margin-right: -107px;" >
                      <input size="16" type="text" name="todate" id="calendar2" required placeholder="To Date.."/>
                     </div>
+                     <div class="clearfix"></div>
+        
+                     <div class="row">
                     <div class="form-group text-center">
                        
-                <button type="submit" class="btn btn-primary" style="margin-left:70px;">Submit</button>      
-          </div>
+                <button type="submit" class="btn btn-primary" style="margin-left:100px;">Submit</button>      
+          </div></div>
                     </form>
                 </div>
                 </div><!--panel body-->
@@ -47,31 +54,34 @@
              <button type="button" class="btn btn-info" onclick="Export('excel')">Export to Excel</button><br></br>
              <button type="button" class="btn btn-info" onclick="Export('pdf')">  Export to Pdf  </button> 
            </div>
+           <!-- <input type="hidden" value="{{employeeid}}" id="employeeid"/> -->
             <input type="hidden" value="{{frmdate}}" id="frmdate"/>
             <input type="hidden" value="{{tdate}}" id="tdate"/>
                
                 <div class="table-responsive" style="padding-left: 20px;">
+                  <h4>Current Status Of Employee : {{latest}}{{latest1}}</h4>
             
               <table class="table table-bordered table-striped" id="active-members">
                 <thead>
                   <tr>
-                    <th>Empid<i class="fa fa-sort"></i></th>
-                    <th>RfidcardNo<i class="fa fa-sort"></i></th>
-                    <th>EmpName<i class="fa fa-sort"></i></th>
+                   <th>Emp Id<i class="fa fa-sort"></i></th>
+                    <!-- <th>Emp Name<i class="fa fa-sort"></i></th> -->
                     <th>Building<i class="fa fa-sort"></i></th> 
-                    <th>Status<i class="fa fa-sort"></i></th>                        
+                    <!-- <th>Status<i class="fa fa-sort"></i></th>  --> 
+                    <th>Date&Time<i class="fa fa-sort"></i></th>   
+                    <!-- <th>RfidcardNo<i class="fa fa-sort"></i></th> -->                   
                   </tr>
                 </thead>
                 <tbody>
-                    {%for r in report_list %}
+                    {% for r in lists %}
                     <tr>
-                    <td align="left">{{ r.Empid}}</td> 
-                    <td align="left">{{ r.RfidcardNo}}</td> 
-                    <td align="left">{{ r.EmpName}}</td> 
-                    <td align="left">{{ r.Building}}}}</td>
-                    <td align="left">{{r.Status}}</td>
+                    <td align="left">{{ r.empid }}</td> 
+                    <!-- <td align="left">{{ r.qpscsmas_employee_details.first_name}}</td>  -->
+                    <td align="left">{{ r.device_location }}</td>
+                    <td align="left">{{r.date_time}}</td>
+                   <!--  <td align="left">{{ r.rfidcardno}}</td> --> 
                     </tr>
-                    {%endfor%}                     
+                    {% endfor %}            
                 </tbody>
               </table>
              

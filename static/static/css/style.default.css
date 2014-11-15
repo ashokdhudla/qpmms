@@ -864,7 +864,7 @@ h1,h2,h3,h4,h5 { font-weight: normal; line-height: normal; }
 .dataTables_info { border-top: 0; }
 .dataTables_filter { position: absolute; top: 12px; right: 10px; }
 .dataTables_filter input { width: 150px; margin: 0 0 0 10px; }
-.dataTables_paginate { position: absolute; bottom: 10px; right: 10px; }
+.dataTables_paginate { position: absolute;  right: 10px; }
 .dataTables_paginate .first, .dataTables_paginate .previous, .dataTables_paginate .paginate_active, 
 .dataTables_paginate .paginate_button, .dataTables_paginate .next, .dataTables_paginate .last { 
 	padding: 5px 10px; border: 1px solid #ccc; border-left: 0; font-size: 11px; background: #eee; cursor: pointer; }
